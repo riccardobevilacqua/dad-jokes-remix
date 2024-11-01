@@ -6,29 +6,9 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
-import { json, type LinksFunction, type LoaderFunction } from "@remix-run/node";
+import { json, type LoaderFunction } from "@remix-run/node";
 import { themeCookie, type Theme } from "~/utils/theme.server";
 import { useEffect, useState } from "react";
-
-export const links: LinksFunction = () => [
-  {
-    rel: "stylesheet",
-    href: "/app/styles/global.css"
-  },
-  {
-    rel: "preconnect",
-    href: "https://fonts.googleapis.com",
-  },
-  {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap",
-  },
-];
 
 type LoaderData = {
   theme: Theme | null;
@@ -62,6 +42,17 @@ export default function App() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
+        <link rel="stylesheet" href="/styles/global.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link 
+          rel="preconnect" 
+          href="https://fonts.gstatic.com" 
+          crossOrigin="anonymous" 
+        />
+        <link 
+          rel="stylesheet" 
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" 
+        />
         <Links />
       </head>
       <body>
